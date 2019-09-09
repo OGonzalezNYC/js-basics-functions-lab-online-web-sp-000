@@ -1,25 +1,29 @@
 // Code your solution in this file!
-function distanceFromHqInBlocks(street) {
-  return Math.abs(42-street)
+function distanceFromHqInBlocks(pickup) {
+  let blocks;
+  pickup <= 42 ? blocks = 42 - pickup : blocks = pickup - 42;
+  return blocks;
 }
-
-function distanceFromHqInFeet(street) {
-  return distanceFromHqInBlocks(street) * 264
+function distanceFromHqInFeet(pickup) {
+let feet;
+feet = distanceFromHqInBlocks(pickup) * 264;
+  return feet;
 }
-
-function distanceTravelledInFeet(start, end) {
-  return Math.abs(start - end) * 264
+function distanceTravelledInFeet(start, destination)  {
+  let distanceInfeet;
+  start >= destination ? distanceInfeet = (start - destination) * 264 : distanceInfeet = (destination - start) * 264;
+  return distanceInfeet;
 }
-
 function calculatesFarePrice(start, destination) {
-  let num_feet = distanceTravelledInFeet(start, destination)
-  if (num_feet <= 400) {
-    return 0
-  } else if (num_feet > 400 && num_feet <= 2000) {
-    return .02 * (num_feet - 400)
-  } else if (num_feet > 2000 && num_feet <= 2500) {
-    return 25
-  } else {
-    return 'cannot travel that far'
+  let price;
+  let distanceInFeet = distanceTravelledInFeet(start, destination)
+  if (distanceInFeet <= 400) {
+    price = 0
+  } else if (distanceInFeet > 400 && distanceInFeet <= 2000) { 
+    price = 0.02 * (distanceInFeet - 400);
+  } else if (distanceInFeet > 2000 && distanceInFeet <= 2500) {
+    price = 25;
+  } else { price = 'cannot travel that far' 
   }
+  return price;
 }
