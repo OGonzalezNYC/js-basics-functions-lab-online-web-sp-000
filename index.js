@@ -4,16 +4,19 @@ function distanceFromHqInBlocks(pickup) {
   pickup <= 42 ? blocks = 42 - pickup : blocks = pickup - 42;
   return blocks;
 }
+
 function distanceFromHqInFeet(pickup) {
 let feet;
 feet = distanceFromHqInBlocks(pickup) * 264;
   return feet;
 }
+
 function distanceTravelledInFeet(start, destination)  {
   let distanceInfeet;
   start >= destination ? distanceInfeet = (start - destination) * 264 : distanceInfeet = (destination - start) * 264;
   return distanceInfeet;
 }
+
 function calculatesFarePrice(start, destination) {
   let price;
   let distanceInFeet = distanceTravelledInFeet(start, destination)
